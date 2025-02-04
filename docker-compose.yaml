@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest  # Usa l'ultima versione di MySQL
+    container_name: mysql_db  # Nome del container
+    environment:
+      MYSQL_ROOT_PASSWORD: your_root_password  # Password di root (cambiala!)
+      MYSQL_DATABASE: your_database_name  # Nome del database (cambialo!)
+      MYSQL_USER: your_user  # Nome utente (cambialo!)
+      MYSQL_PASSWORD: your_password  # Password utente (cambialo!)
+    ports:
+      - "3306:3306"  # Mappa la porta 3306 del container alla 3306 dell'host (opzionale)
+    volumes:
+      - db_data:/var/lib/mysql  # Volume per i dati persistenti
+
+volumes:
+  db_data:  # Definisce il volume
